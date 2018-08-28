@@ -6,7 +6,7 @@
 #
 Name     : libkdepim
 Version  : 18.08.0
-Release  : 1
+Release  : 2
 URL      : https://download.kde.org/stable/applications/18.08.0/src/libkdepim-18.08.0.tar.xz
 Source0  : https://download.kde.org/stable/applications/18.08.0/src/libkdepim-18.08.0.tar.xz
 Source99 : https://download.kde.org/stable/applications/18.08.0/src/libkdepim-18.08.0.tar.xz.sig
@@ -86,7 +86,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535251732
+export SOURCE_DATE_EPOCH=1535433949
 mkdir clr-build
 pushd clr-build
 %cmake ..
@@ -94,7 +94,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1535251732
+export SOURCE_DATE_EPOCH=1535433949
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/libkdepim
 cp COPYING %{buildroot}/usr/share/doc/libkdepim/COPYING
@@ -116,6 +116,8 @@ popd
 /usr/share/kdepimwidgets/pics/kdateedit.png
 /usr/share/kdepimwidgets/pics/ktimeedit.png
 /usr/share/kservices5/kcmldap.desktop
+/usr/share/xdg/libkdepim.categories
+/usr/share/xdg/libkdepim.renamecategories
 
 %files dev
 %defattr(-,root,root,-)
