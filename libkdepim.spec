@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : libkdepim
-Version  : 18.12.3
-Release  : 5
-URL      : https://download.kde.org/stable/applications/18.12.3/src/libkdepim-18.12.3.tar.xz
-Source0  : https://download.kde.org/stable/applications/18.12.3/src/libkdepim-18.12.3.tar.xz
-Source99 : https://download.kde.org/stable/applications/18.12.3/src/libkdepim-18.12.3.tar.xz.sig
+Version  : 19.04.0
+Release  : 6
+URL      : https://download.kde.org/stable/applications/19.04.0/src/libkdepim-19.04.0.tar.xz
+Source0  : https://download.kde.org/stable/applications/19.04.0/src/libkdepim-19.04.0.tar.xz
+Source99 : https://download.kde.org/stable/applications/19.04.0/src/libkdepim-19.04.0.tar.xz.sig
 Summary  : Libraries for KDE PIM applications
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1
@@ -80,14 +80,14 @@ locales components for the libkdepim package.
 
 
 %prep
-%setup -q -n libkdepim-18.12.3
+%setup -q -n libkdepim-19.04.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1555353343
+export SOURCE_DATE_EPOCH=1555685581
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
@@ -95,7 +95,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1555353343
+export SOURCE_DATE_EPOCH=1555685581
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libkdepim
 cp COPYING %{buildroot}/usr/share/package-licenses/libkdepim/COPYING
@@ -136,6 +136,7 @@ popd
 /usr/include/KF5/Libkdepim/LdapClient
 /usr/include/KF5/Libkdepim/LdapClientSearch
 /usr/include/KF5/Libkdepim/LdapClientSearchConfig
+/usr/include/KF5/Libkdepim/LdapConfigureWidget
 /usr/include/KF5/Libkdepim/LdapSearchDialog
 /usr/include/KF5/Libkdepim/MaillistDrag
 /usr/include/KF5/Libkdepim/MultiplyingLine
@@ -178,6 +179,7 @@ popd
 /usr/include/KF5/libkdepim/ldapclient.h
 /usr/include/KF5/libkdepim/ldapclientsearch.h
 /usr/include/KF5/libkdepim/ldapclientsearchconfig.h
+/usr/include/KF5/libkdepim/ldapconfigurewidget.h
 /usr/include/KF5/libkdepim/ldapsearchdialog.h
 /usr/include/KF5/libkdepim/maillistdrag.h
 /usr/include/KF5/libkdepim/multiplyingline.h
@@ -225,9 +227,9 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5Libkdepim.so.5
-/usr/lib64/libKF5Libkdepim.so.5.10.3
+/usr/lib64/libKF5Libkdepim.so.5.11.0
 /usr/lib64/libKF5LibkdepimAkonadi.so.5
-/usr/lib64/libKF5LibkdepimAkonadi.so.5.10.3
+/usr/lib64/libKF5LibkdepimAkonadi.so.5.11.0
 /usr/lib64/qt5/plugins/designer/kdepimakonadiwidgets.so
 /usr/lib64/qt5/plugins/designer/kdepimwidgets.so
 /usr/lib64/qt5/plugins/kcm_ldap.so
