@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : libkdepim
-Version  : 19.04.3
-Release  : 10
-URL      : https://download.kde.org/stable/applications/19.04.3/src/libkdepim-19.04.3.tar.xz
-Source0  : https://download.kde.org/stable/applications/19.04.3/src/libkdepim-19.04.3.tar.xz
-Source99 : https://download.kde.org/stable/applications/19.04.3/src/libkdepim-19.04.3.tar.xz.sig
+Version  : 19.08.0
+Release  : 11
+URL      : https://download.kde.org/stable/applications/19.08.0/src/libkdepim-19.08.0.tar.xz
+Source0  : https://download.kde.org/stable/applications/19.08.0/src/libkdepim-19.08.0.tar.xz
+Source1 : https://download.kde.org/stable/applications/19.08.0/src/libkdepim-19.08.0.tar.xz.sig
 Summary  : Libraries for KDE PIM applications
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1
@@ -81,16 +81,17 @@ locales components for the libkdepim package.
 
 
 %prep
-%setup -q -n libkdepim-19.04.3
+%setup -q -n libkdepim-19.08.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1562956928
+export SOURCE_DATE_EPOCH=1565926416
 mkdir -p clr-build
 pushd clr-build
+# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -104,7 +105,7 @@ make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1562956928
+export SOURCE_DATE_EPOCH=1565926416
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libkdepim
 cp COPYING %{buildroot}/usr/share/package-licenses/libkdepim/COPYING
@@ -126,8 +127,8 @@ popd
 /usr/share/kdepimwidgets/pics/kdateedit.png
 /usr/share/kdepimwidgets/pics/ktimeedit.png
 /usr/share/kservices5/kcmldap.desktop
-/usr/share/xdg/libkdepim.categories
-/usr/share/xdg/libkdepim.renamecategories
+/usr/share/qlogging-categories5/libkdepim.categories
+/usr/share/qlogging-categories5/libkdepim.renamecategories
 
 %files dev
 %defattr(-,root,root,-)
@@ -164,12 +165,9 @@ popd
 /usr/include/KF5/LibkdepimAkonadi/AddEmailAddressJob
 /usr/include/KF5/LibkdepimAkonadi/AddEmailDisplayJob
 /usr/include/KF5/LibkdepimAkonadi/AddresseeLineEdit
-/usr/include/KF5/LibkdepimAkonadi/CollectionSearchJob
 /usr/include/KF5/LibkdepimAkonadi/CompletionConfigureDialog
 /usr/include/KF5/LibkdepimAkonadi/CompletionOrderEditor
 /usr/include/KF5/LibkdepimAkonadi/OpenEmailAddressJob
-/usr/include/KF5/LibkdepimAkonadi/Person
-/usr/include/KF5/LibkdepimAkonadi/PersonSearchJob
 /usr/include/KF5/LibkdepimAkonadi/ProgressManagerAkonadi
 /usr/include/KF5/LibkdepimAkonadi/TagSelectionCombo
 /usr/include/KF5/LibkdepimAkonadi/TagWidgets
@@ -208,13 +206,10 @@ popd
 /usr/include/KF5/libkdepimakonadi/addemailaddressjob.h
 /usr/include/KF5/libkdepimakonadi/addemaildisplayjob.h
 /usr/include/KF5/libkdepimakonadi/addresseelineedit.h
-/usr/include/KF5/libkdepimakonadi/collectionsearchjob.h
 /usr/include/KF5/libkdepimakonadi/completionconfiguredialog.h
 /usr/include/KF5/libkdepimakonadi/completionordereditor.h
 /usr/include/KF5/libkdepimakonadi/kdepimakonadi_export.h
 /usr/include/KF5/libkdepimakonadi/openemailaddressjob.h
-/usr/include/KF5/libkdepimakonadi/person.h
-/usr/include/KF5/libkdepimakonadi/personsearchjob.h
 /usr/include/KF5/libkdepimakonadi/progressmanagerakonadi.h
 /usr/include/KF5/libkdepimakonadi/tagselectioncombo.h
 /usr/include/KF5/libkdepimakonadi/tagwidgets.h
@@ -236,9 +231,9 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5Libkdepim.so.5
-/usr/lib64/libKF5Libkdepim.so.5.11.3
+/usr/lib64/libKF5Libkdepim.so.5.12.0
 /usr/lib64/libKF5LibkdepimAkonadi.so.5
-/usr/lib64/libKF5LibkdepimAkonadi.so.5.11.3
+/usr/lib64/libKF5LibkdepimAkonadi.so.5.12.0
 /usr/lib64/qt5/plugins/designer/kdepimakonadiwidgets.so
 /usr/lib64/qt5/plugins/designer/kdepimwidgets.so
 /usr/lib64/qt5/plugins/kcm_ldap.so
