@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : libkdepim
-Version  : 19.08.1
-Release  : 12
-URL      : https://download.kde.org/stable/applications/19.08.1/src/libkdepim-19.08.1.tar.xz
-Source0  : https://download.kde.org/stable/applications/19.08.1/src/libkdepim-19.08.1.tar.xz
-Source1 : https://download.kde.org/stable/applications/19.08.1/src/libkdepim-19.08.1.tar.xz.sig
+Version  : 19.08.2
+Release  : 13
+URL      : https://download.kde.org/stable/applications/19.08.2/src/libkdepim-19.08.2.tar.xz
+Source0  : https://download.kde.org/stable/applications/19.08.2/src/libkdepim-19.08.2.tar.xz
+Source1 : https://download.kde.org/stable/applications/19.08.2/src/libkdepim-19.08.2.tar.xz.sig
 Summary  : Libraries for KDE PIM applications
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1
@@ -21,7 +21,6 @@ BuildRequires : akonadi-contacts-dev
 BuildRequires : akonadi-dev
 BuildRequires : akonadi-mime-dev
 BuildRequires : akonadi-search-dev
-BuildRequires : boost-dev
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : kcalcore-dev
@@ -81,14 +80,14 @@ locales components for the libkdepim package.
 
 
 %prep
-%setup -q -n libkdepim-19.08.1
+%setup -q -n libkdepim-19.08.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1567742997
+export SOURCE_DATE_EPOCH=1570774222
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -101,11 +100,11 @@ export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
 export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
-make  %{?_smp_mflags} VERBOSE=1
+make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1567742997
+export SOURCE_DATE_EPOCH=1570774222
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libkdepim
 cp COPYING %{buildroot}/usr/share/package-licenses/libkdepim/COPYING
@@ -231,9 +230,9 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5Libkdepim.so.5
-/usr/lib64/libKF5Libkdepim.so.5.12.1
+/usr/lib64/libKF5Libkdepim.so.5.12.2
 /usr/lib64/libKF5LibkdepimAkonadi.so.5
-/usr/lib64/libKF5LibkdepimAkonadi.so.5.12.1
+/usr/lib64/libKF5LibkdepimAkonadi.so.5.12.2
 /usr/lib64/qt5/plugins/designer/kdepimakonadiwidgets.so
 /usr/lib64/qt5/plugins/designer/kdepimwidgets.so
 /usr/lib64/qt5/plugins/kcm_ldap.so
