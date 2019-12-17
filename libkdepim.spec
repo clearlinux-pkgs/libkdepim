@@ -6,7 +6,7 @@
 #
 Name     : libkdepim
 Version  : 19.12.0
-Release  : 16
+Release  : 17
 URL      : https://download.kde.org/stable/release-service/19.12.0/src/libkdepim-19.12.0.tar.xz
 Source0  : https://download.kde.org/stable/release-service/19.12.0/src/libkdepim-19.12.0.tar.xz
 Source1  : https://download.kde.org/stable/release-service/19.12.0/src/libkdepim-19.12.0.tar.xz.sig
@@ -21,9 +21,10 @@ BuildRequires : akonadi-contacts-dev
 BuildRequires : akonadi-dev
 BuildRequires : akonadi-mime-dev
 BuildRequires : akonadi-search-dev
+BuildRequires : boost-dev
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
-BuildRequires : kcalcore-dev
+BuildRequires : kcalendarcore-dev
 BuildRequires : kcontacts-dev
 BuildRequires : kldap-dev
 BuildRequires : kmime-dev
@@ -46,7 +47,6 @@ Group: Development
 Requires: libkdepim-lib = %{version}-%{release}
 Requires: libkdepim-data = %{version}-%{release}
 Provides: libkdepim-devel = %{version}-%{release}
-Requires: libkdepim = %{version}-%{release}
 Requires: libkdepim = %{version}-%{release}
 
 %description dev
@@ -88,10 +88,9 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1576580080
+export SOURCE_DATE_EPOCH=1576626210
 mkdir -p clr-build
 pushd clr-build
-# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -105,7 +104,7 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1576580080
+export SOURCE_DATE_EPOCH=1576626210
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libkdepim
 cp %{_builddir}/libkdepim-19.12.0/COPYING %{buildroot}/usr/share/package-licenses/libkdepim/7c203dee3a03037da436df03c4b25b659c073976
