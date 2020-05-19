@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : libkdepim
-Version  : 20.04.0
-Release  : 22
-URL      : https://download.kde.org/stable/release-service/20.04.0/src/libkdepim-20.04.0.tar.xz
-Source0  : https://download.kde.org/stable/release-service/20.04.0/src/libkdepim-20.04.0.tar.xz
-Source1  : https://download.kde.org/stable/release-service/20.04.0/src/libkdepim-20.04.0.tar.xz.sig
+Version  : 20.04.1
+Release  : 23
+URL      : https://download.kde.org/stable/release-service/20.04.1/src/libkdepim-20.04.1.tar.xz
+Source0  : https://download.kde.org/stable/release-service/20.04.1/src/libkdepim-20.04.1.tar.xz
+Source1  : https://download.kde.org/stable/release-service/20.04.1/src/libkdepim-20.04.1.tar.xz.sig
 Summary  : Libraries for KDE PIM applications
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1
@@ -24,10 +24,23 @@ BuildRequires : akonadi-search-dev
 BuildRequires : boost-dev
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
+BuildRequires : extra-cmake-modules-data
 BuildRequires : kcalendarcore-dev
+BuildRequires : kcmutils-dev
+BuildRequires : kcodecs-dev
+BuildRequires : kcompletion-dev
+BuildRequires : kconfig-dev
+BuildRequires : kconfigwidgets-dev
 BuildRequires : kcontacts-dev
+BuildRequires : kcoreaddons-dev
+BuildRequires : ki18n-dev
+BuildRequires : kio-dev
+BuildRequires : kitemviews-dev
+BuildRequires : kjobwidgets-dev
 BuildRequires : kldap-dev
 BuildRequires : kmime-dev
+BuildRequires : kwallet-dev
+BuildRequires : kwidgetsaddons-dev
 BuildRequires : qtbase-dev mesa-dev
 
 %description
@@ -47,7 +60,6 @@ Group: Development
 Requires: libkdepim-lib = %{version}-%{release}
 Requires: libkdepim-data = %{version}-%{release}
 Provides: libkdepim-devel = %{version}-%{release}
-Requires: libkdepim = %{version}-%{release}
 Requires: libkdepim = %{version}-%{release}
 
 %description dev
@@ -81,36 +93,35 @@ locales components for the libkdepim package.
 
 
 %prep
-%setup -q -n libkdepim-20.04.0
-cd %{_builddir}/libkdepim-20.04.0
+%setup -q -n libkdepim-20.04.1
+cd %{_builddir}/libkdepim-20.04.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1587694486
+export SOURCE_DATE_EPOCH=1589902327
 mkdir -p clr-build
 pushd clr-build
-# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
 export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
 make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1587694486
+export SOURCE_DATE_EPOCH=1589902327
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libkdepim
-cp %{_builddir}/libkdepim-20.04.0/COPYING %{buildroot}/usr/share/package-licenses/libkdepim/7c203dee3a03037da436df03c4b25b659c073976
-cp %{_builddir}/libkdepim-20.04.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/libkdepim/9a1929f4700d2407c70b507b3b2aaf6226a9543c
+cp %{_builddir}/libkdepim-20.04.1/COPYING %{buildroot}/usr/share/package-licenses/libkdepim/7c203dee3a03037da436df03c4b25b659c073976
+cp %{_builddir}/libkdepim-20.04.1/COPYING.LIB %{buildroot}/usr/share/package-licenses/libkdepim/9a1929f4700d2407c70b507b3b2aaf6226a9543c
 pushd clr-build
 %make_install
 popd
@@ -230,9 +241,9 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5Libkdepim.so.5
-/usr/lib64/libKF5Libkdepim.so.5.14.0
+/usr/lib64/libKF5Libkdepim.so.5.14.1
 /usr/lib64/libKF5LibkdepimAkonadi.so.5
-/usr/lib64/libKF5LibkdepimAkonadi.so.5.14.0
+/usr/lib64/libKF5LibkdepimAkonadi.so.5.14.1
 /usr/lib64/qt5/plugins/designer/kdepimakonadiwidgets.so
 /usr/lib64/qt5/plugins/designer/kdepimwidgets.so
 /usr/lib64/qt5/plugins/kcm_ldap.so
