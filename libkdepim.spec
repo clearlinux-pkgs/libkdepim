@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : libkdepim
-Version  : 20.04.2
-Release  : 24
-URL      : https://download.kde.org/stable/release-service/20.04.2/src/libkdepim-20.04.2.tar.xz
-Source0  : https://download.kde.org/stable/release-service/20.04.2/src/libkdepim-20.04.2.tar.xz
-Source1  : https://download.kde.org/stable/release-service/20.04.2/src/libkdepim-20.04.2.tar.xz.sig
+Version  : 20.08.0
+Release  : 25
+URL      : https://download.kde.org/stable/release-service/20.08.0/src/libkdepim-20.08.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/20.08.0/src/libkdepim-20.08.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/20.08.0/src/libkdepim-20.08.0.tar.xz.sig
 Summary  : Libraries for KDE PIM applications
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.1
@@ -39,7 +39,6 @@ BuildRequires : kitemviews-dev
 BuildRequires : kjobwidgets-dev
 BuildRequires : kldap-dev
 BuildRequires : kmime-dev
-BuildRequires : kwallet-dev
 BuildRequires : kwidgetsaddons-dev
 BuildRequires : qtbase-dev mesa-dev
 
@@ -93,15 +92,15 @@ locales components for the libkdepim package.
 
 
 %prep
-%setup -q -n libkdepim-20.04.2
-cd %{_builddir}/libkdepim-20.04.2
+%setup -q -n libkdepim-20.08.0
+cd %{_builddir}/libkdepim-20.08.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1591913277
+export SOURCE_DATE_EPOCH=1597733620
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -113,15 +112,15 @@ export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
-make  %{?_smp_mflags}  VERBOSE=1
+make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1591913277
+export SOURCE_DATE_EPOCH=1597733620
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libkdepim
-cp %{_builddir}/libkdepim-20.04.2/COPYING %{buildroot}/usr/share/package-licenses/libkdepim/7c203dee3a03037da436df03c4b25b659c073976
-cp %{_builddir}/libkdepim-20.04.2/COPYING.LIB %{buildroot}/usr/share/package-licenses/libkdepim/9a1929f4700d2407c70b507b3b2aaf6226a9543c
+cp %{_builddir}/libkdepim-20.08.0/COPYING %{buildroot}/usr/share/package-licenses/libkdepim/7c203dee3a03037da436df03c4b25b659c073976
+cp %{_builddir}/libkdepim-20.08.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/libkdepim/9a1929f4700d2407c70b507b3b2aaf6226a9543c
 pushd clr-build
 %make_install
 popd
@@ -134,119 +133,52 @@ popd
 %defattr(-,root,root,-)
 /usr/share/dbus-1/interfaces/org.kde.addressbook.service.xml
 /usr/share/dbus-1/interfaces/org.kde.mailtransport.service.xml
-/usr/share/kdepimwidgets/pics/addresseelineedit.png
-/usr/share/kdepimwidgets/pics/clicklineedit.png
-/usr/share/kdepimwidgets/pics/kdateedit.png
-/usr/share/kdepimwidgets/pics/ktimeedit.png
-/usr/share/kservices5/kcmldap.desktop
 /usr/share/qlogging-categories5/libkdepim.categories
 /usr/share/qlogging-categories5/libkdepim.renamecategories
 
 %files dev
 %defattr(-,root,root,-)
-/usr/include/KF5/Libkdepim/AddHostDialog
-/usr/include/KF5/Libkdepim/AddresseeLineEditUtil
-/usr/include/KF5/Libkdepim/BroadcastStatus
-/usr/include/KF5/Libkdepim/CustomLogWidget
-/usr/include/KF5/Libkdepim/EmailValidator
 /usr/include/KF5/Libkdepim/KCheckComboBox
 /usr/include/KF5/Libkdepim/KCursorSaver
-/usr/include/KF5/Libkdepim/KDatePickerPopup
 /usr/include/KF5/Libkdepim/KPrefsDialog
-/usr/include/KF5/Libkdepim/KWeekdayCheckCombo
 /usr/include/KF5/Libkdepim/KWidgetLister
-/usr/include/KF5/Libkdepim/LdapClient
-/usr/include/KF5/Libkdepim/LdapClientSearch
-/usr/include/KF5/Libkdepim/LdapClientSearchConfig
-/usr/include/KF5/Libkdepim/LdapConfigureWidget
-/usr/include/KF5/Libkdepim/LdapSearchDialog
-/usr/include/KF5/Libkdepim/MaillistDrag
+/usr/include/KF5/Libkdepim/LineEditCatchReturnKey
 /usr/include/KF5/Libkdepim/MultiplyingLine
 /usr/include/KF5/Libkdepim/MultiplyingLineEditor
-/usr/include/KF5/Libkdepim/OverlayWidget
-/usr/include/KF5/Libkdepim/PIMMessageBox
 /usr/include/KF5/Libkdepim/ProgressDialog
 /usr/include/KF5/Libkdepim/ProgressIndicatorLabel
 /usr/include/KF5/Libkdepim/ProgressManager
 /usr/include/KF5/Libkdepim/ProgressStatusBarWidget
-/usr/include/KF5/Libkdepim/RecentAddresses
 /usr/include/KF5/Libkdepim/StatusbarProgressWidget
 /usr/include/KF5/Libkdepim/UiStateSaver
-/usr/include/KF5/LibkdepimAkonadi/AddContactJob
-/usr/include/KF5/LibkdepimAkonadi/AddEmailAddressJob
-/usr/include/KF5/LibkdepimAkonadi/AddEmailDisplayJob
-/usr/include/KF5/LibkdepimAkonadi/AddresseeLineEdit
-/usr/include/KF5/LibkdepimAkonadi/CompletionConfigureDialog
-/usr/include/KF5/LibkdepimAkonadi/CompletionOrderEditor
-/usr/include/KF5/LibkdepimAkonadi/OpenEmailAddressJob
-/usr/include/KF5/LibkdepimAkonadi/ProgressManagerAkonadi
-/usr/include/KF5/LibkdepimAkonadi/TagSelectionCombo
-/usr/include/KF5/LibkdepimAkonadi/TagWidgets
-/usr/include/KF5/libkdepim/addhostdialog.h
-/usr/include/KF5/libkdepim/addresseelineeditutil.h
-/usr/include/KF5/libkdepim/broadcaststatus.h
-/usr/include/KF5/libkdepim/customlogwidget.h
-/usr/include/KF5/libkdepim/emailvalidator.h
 /usr/include/KF5/libkdepim/kcheckcombobox.h
 /usr/include/KF5/libkdepim/kcursorsaver.h
-/usr/include/KF5/libkdepim/kdatepickerpopup.h
 /usr/include/KF5/libkdepim/kdepim_export.h
 /usr/include/KF5/libkdepim/kprefsdialog.h
-/usr/include/KF5/libkdepim/kweekdaycheckcombo.h
 /usr/include/KF5/libkdepim/kwidgetlister.h
-/usr/include/KF5/libkdepim/ldapclient.h
-/usr/include/KF5/libkdepim/ldapclientsearch.h
-/usr/include/KF5/libkdepim/ldapclientsearchconfig.h
-/usr/include/KF5/libkdepim/ldapconfigurewidget.h
-/usr/include/KF5/libkdepim/ldapsearchdialog.h
-/usr/include/KF5/libkdepim/maillistdrag.h
+/usr/include/KF5/libkdepim/lineeditcatchreturnkey.h
 /usr/include/KF5/libkdepim/multiplyingline.h
 /usr/include/KF5/libkdepim/multiplyinglineeditor.h
-/usr/include/KF5/libkdepim/overlaywidget.h
-/usr/include/KF5/libkdepim/pimmessagebox.h
 /usr/include/KF5/libkdepim/progressdialog.h
 /usr/include/KF5/libkdepim/progressindicatorlabel.h
 /usr/include/KF5/libkdepim/progressmanager.h
 /usr/include/KF5/libkdepim/progressstatusbarwidget.h
-/usr/include/KF5/libkdepim/recentaddresses.h
 /usr/include/KF5/libkdepim/statusbarprogresswidget.h
 /usr/include/KF5/libkdepim/uistatesaver.h
 /usr/include/KF5/libkdepim_version.h
-/usr/include/KF5/libkdepimakonadi/addcontactjob.h
-/usr/include/KF5/libkdepimakonadi/addemailaddressjob.h
-/usr/include/KF5/libkdepimakonadi/addemaildisplayjob.h
-/usr/include/KF5/libkdepimakonadi/addresseelineedit.h
-/usr/include/KF5/libkdepimakonadi/completionconfiguredialog.h
-/usr/include/KF5/libkdepimakonadi/completionordereditor.h
-/usr/include/KF5/libkdepimakonadi/kdepimakonadi_export.h
-/usr/include/KF5/libkdepimakonadi/openemailaddressjob.h
-/usr/include/KF5/libkdepimakonadi/progressmanagerakonadi.h
-/usr/include/KF5/libkdepimakonadi/tagselectioncombo.h
-/usr/include/KF5/libkdepimakonadi/tagwidgets.h
-/usr/include/KF5/libkdepimakonadi_version.h
 /usr/lib64/cmake/KF5Libkdepim/KF5LibkdepimConfig.cmake
 /usr/lib64/cmake/KF5Libkdepim/KF5LibkdepimConfigVersion.cmake
 /usr/lib64/cmake/KF5Libkdepim/KF5LibkdepimTargets-relwithdebinfo.cmake
 /usr/lib64/cmake/KF5Libkdepim/KF5LibkdepimTargets.cmake
-/usr/lib64/cmake/KF5LibkdepimAkonadi/KF5LibkdepimAkonadiConfig.cmake
-/usr/lib64/cmake/KF5LibkdepimAkonadi/KF5LibkdepimAkonadiConfigVersion.cmake
-/usr/lib64/cmake/KF5LibkdepimAkonadi/KF5LibkdepimAkonadiTargets-relwithdebinfo.cmake
-/usr/lib64/cmake/KF5LibkdepimAkonadi/KF5LibkdepimAkonadiTargets.cmake
 /usr/lib64/cmake/MailTransportDBusService/MailTransportDBusServiceConfig.cmake
 /usr/lib64/libKF5Libkdepim.so
-/usr/lib64/libKF5LibkdepimAkonadi.so
 /usr/lib64/qt5/mkspecs/modules/qt_Libkdepim.pri
-/usr/lib64/qt5/mkspecs/modules/qt_LibkdepimAkonadi.pri
 
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5Libkdepim.so.5
-/usr/lib64/libKF5Libkdepim.so.5.14.2
-/usr/lib64/libKF5LibkdepimAkonadi.so.5
-/usr/lib64/libKF5LibkdepimAkonadi.so.5.14.2
-/usr/lib64/qt5/plugins/designer/kdepimakonadiwidgets.so
+/usr/lib64/libKF5Libkdepim.so.5.15.0
 /usr/lib64/qt5/plugins/designer/kdepimwidgets.so
-/usr/lib64/qt5/plugins/kcm_ldap.so
 
 %files license
 %defattr(0644,root,root,0755)
