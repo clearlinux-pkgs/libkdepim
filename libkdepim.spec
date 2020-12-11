@@ -5,14 +5,14 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : libkdepim
-Version  : 20.08.3
-Release  : 28
-URL      : https://download.kde.org/stable/release-service/20.08.3/src/libkdepim-20.08.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/20.08.3/src/libkdepim-20.08.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/20.08.3/src/libkdepim-20.08.3.tar.xz.sig
+Version  : 20.12.0
+Release  : 29
+URL      : https://download.kde.org/stable/release-service/20.12.0/src/libkdepim-20.12.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/20.12.0/src/libkdepim-20.12.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/20.12.0/src/libkdepim-20.12.0.tar.xz.sig
 Summary  : Libraries for KDE PIM applications
 Group    : Development/Tools
-License  : GPL-2.0 LGPL-2.1
+License  : GPL-2.0 LGPL-2.0
 Requires: libkdepim-data = %{version}-%{release}
 Requires: libkdepim-lib = %{version}-%{release}
 Requires: libkdepim-license = %{version}-%{release}
@@ -26,7 +26,6 @@ BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : extra-cmake-modules-data
 BuildRequires : kcalendarcore-dev
-BuildRequires : kcmutils-dev
 BuildRequires : kcodecs-dev
 BuildRequires : kcompletion-dev
 BuildRequires : kconfig-dev
@@ -34,7 +33,6 @@ BuildRequires : kconfigwidgets-dev
 BuildRequires : kcontacts-dev
 BuildRequires : kcoreaddons-dev
 BuildRequires : ki18n-dev
-BuildRequires : kio-dev
 BuildRequires : kitemviews-dev
 BuildRequires : kjobwidgets-dev
 BuildRequires : kldap-dev
@@ -92,15 +90,15 @@ locales components for the libkdepim package.
 
 
 %prep
-%setup -q -n libkdepim-20.08.3
-cd %{_builddir}/libkdepim-20.08.3
+%setup -q -n libkdepim-20.12.0
+cd %{_builddir}/libkdepim-20.12.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1604614322
+export SOURCE_DATE_EPOCH=1607726824
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -116,11 +114,11 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1604614322
+export SOURCE_DATE_EPOCH=1607726824
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libkdepim
-cp %{_builddir}/libkdepim-20.08.3/COPYING %{buildroot}/usr/share/package-licenses/libkdepim/7c203dee3a03037da436df03c4b25b659c073976
-cp %{_builddir}/libkdepim-20.08.3/COPYING.LIB %{buildroot}/usr/share/package-licenses/libkdepim/9a1929f4700d2407c70b507b3b2aaf6226a9543c
+cp %{_builddir}/libkdepim-20.12.0/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/libkdepim/e712eadfab0d2357c0f50f599ef35ee0d87534cb
+cp %{_builddir}/libkdepim-20.12.0/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/libkdepim/20079e8f79713dce80ab09774505773c926afa2a
 pushd clr-build
 %make_install
 popd
@@ -139,8 +137,6 @@ popd
 %files dev
 %defattr(-,root,root,-)
 /usr/include/KF5/Libkdepim/KCheckComboBox
-/usr/include/KF5/Libkdepim/KCursorSaver
-/usr/include/KF5/Libkdepim/KPrefsDialog
 /usr/include/KF5/Libkdepim/KWidgetLister
 /usr/include/KF5/Libkdepim/LineEditCatchReturnKey
 /usr/include/KF5/Libkdepim/MultiplyingLine
@@ -150,11 +146,8 @@ popd
 /usr/include/KF5/Libkdepim/ProgressManager
 /usr/include/KF5/Libkdepim/ProgressStatusBarWidget
 /usr/include/KF5/Libkdepim/StatusbarProgressWidget
-/usr/include/KF5/Libkdepim/UiStateSaver
 /usr/include/KF5/libkdepim/kcheckcombobox.h
-/usr/include/KF5/libkdepim/kcursorsaver.h
 /usr/include/KF5/libkdepim/kdepim_export.h
-/usr/include/KF5/libkdepim/kprefsdialog.h
 /usr/include/KF5/libkdepim/kwidgetlister.h
 /usr/include/KF5/libkdepim/lineeditcatchreturnkey.h
 /usr/include/KF5/libkdepim/multiplyingline.h
@@ -164,7 +157,6 @@ popd
 /usr/include/KF5/libkdepim/progressmanager.h
 /usr/include/KF5/libkdepim/progressstatusbarwidget.h
 /usr/include/KF5/libkdepim/statusbarprogresswidget.h
-/usr/include/KF5/libkdepim/uistatesaver.h
 /usr/include/KF5/libkdepim_version.h
 /usr/lib64/cmake/KF5Libkdepim/KF5LibkdepimConfig.cmake
 /usr/lib64/cmake/KF5Libkdepim/KF5LibkdepimConfigVersion.cmake
@@ -177,13 +169,13 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5Libkdepim.so.5
-/usr/lib64/libKF5Libkdepim.so.5.15.3
+/usr/lib64/libKF5Libkdepim.so.5.16.0
 /usr/lib64/qt5/plugins/designer/kdepimwidgets.so
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/libkdepim/7c203dee3a03037da436df03c4b25b659c073976
-/usr/share/package-licenses/libkdepim/9a1929f4700d2407c70b507b3b2aaf6226a9543c
+/usr/share/package-licenses/libkdepim/20079e8f79713dce80ab09774505773c926afa2a
+/usr/share/package-licenses/libkdepim/e712eadfab0d2357c0f50f599ef35ee0d87534cb
 
 %files locales -f libkdepim.lang
 %defattr(-,root,root,-)
