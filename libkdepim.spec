@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : libkdepim
-Version  : 20.12.0
-Release  : 29
-URL      : https://download.kde.org/stable/release-service/20.12.0/src/libkdepim-20.12.0.tar.xz
-Source0  : https://download.kde.org/stable/release-service/20.12.0/src/libkdepim-20.12.0.tar.xz
-Source1  : https://download.kde.org/stable/release-service/20.12.0/src/libkdepim-20.12.0.tar.xz.sig
+Version  : 20.12.1
+Release  : 30
+URL      : https://download.kde.org/stable/release-service/20.12.1/src/libkdepim-20.12.1.tar.xz
+Source0  : https://download.kde.org/stable/release-service/20.12.1/src/libkdepim-20.12.1.tar.xz
+Source1  : https://download.kde.org/stable/release-service/20.12.1/src/libkdepim-20.12.1.tar.xz.sig
 Summary  : Libraries for KDE PIM applications
 Group    : Development/Tools
 License  : GPL-2.0 LGPL-2.0
@@ -90,15 +90,15 @@ locales components for the libkdepim package.
 
 
 %prep
-%setup -q -n libkdepim-20.12.0
-cd %{_builddir}/libkdepim-20.12.0
+%setup -q -n libkdepim-20.12.1
+cd %{_builddir}/libkdepim-20.12.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1607726824
+export SOURCE_DATE_EPOCH=1610054883
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -114,11 +114,11 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1607726824
+export SOURCE_DATE_EPOCH=1610054883
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libkdepim
-cp %{_builddir}/libkdepim-20.12.0/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/libkdepim/e712eadfab0d2357c0f50f599ef35ee0d87534cb
-cp %{_builddir}/libkdepim-20.12.0/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/libkdepim/20079e8f79713dce80ab09774505773c926afa2a
+cp %{_builddir}/libkdepim-20.12.1/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/libkdepim/e712eadfab0d2357c0f50f599ef35ee0d87534cb
+cp %{_builddir}/libkdepim-20.12.1/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/libkdepim/20079e8f79713dce80ab09774505773c926afa2a
 pushd clr-build
 %make_install
 popd
@@ -169,7 +169,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5Libkdepim.so.5
-/usr/lib64/libKF5Libkdepim.so.5.16.0
+/usr/lib64/libKF5Libkdepim.so.5.16.1
 /usr/lib64/qt5/plugins/designer/kdepimwidgets.so
 
 %files license
