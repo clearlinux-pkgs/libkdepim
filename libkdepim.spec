@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : libkdepim
-Version  : 21.12.3
-Release  : 41
-URL      : https://download.kde.org/stable/release-service/21.12.3/src/libkdepim-21.12.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/21.12.3/src/libkdepim-21.12.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/21.12.3/src/libkdepim-21.12.3.tar.xz.sig
+Version  : 22.04.0
+Release  : 42
+URL      : https://download.kde.org/stable/release-service/22.04.0/src/libkdepim-22.04.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/22.04.0/src/libkdepim-22.04.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/22.04.0/src/libkdepim-22.04.0.tar.xz.sig
 Summary  : Libraries for KDE PIM applications
 Group    : Development/Tools
 License  : BSD-3-Clause CC0-1.0 GPL-2.0 LGPL-2.0
@@ -37,7 +37,6 @@ BuildRequires : kjobwidgets-dev
 BuildRequires : kldap-dev
 BuildRequires : kmime-dev
 BuildRequires : kwidgetsaddons-dev
-BuildRequires : qtbase-dev mesa-dev
 
 %description
 No detailed description available
@@ -89,15 +88,15 @@ locales components for the libkdepim package.
 
 
 %prep
-%setup -q -n libkdepim-21.12.3
-cd %{_builddir}/libkdepim-21.12.3
+%setup -q -n libkdepim-22.04.0
+cd %{_builddir}/libkdepim-22.04.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1646521187
+export SOURCE_DATE_EPOCH=1650657355
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -113,14 +112,14 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1646521187
+export SOURCE_DATE_EPOCH=1650657355
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libkdepim
-cp %{_builddir}/libkdepim-21.12.3/CMakePresets.json.license %{buildroot}/usr/share/package-licenses/libkdepim/29fb05b49e12a380545499938c4879440bd8851e
-cp %{_builddir}/libkdepim-21.12.3/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/libkdepim/8287b608d3fa40ef401339fd907ca1260c964123
-cp %{_builddir}/libkdepim-21.12.3/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/libkdepim/e712eadfab0d2357c0f50f599ef35ee0d87534cb
-cp %{_builddir}/libkdepim-21.12.3/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/libkdepim/20079e8f79713dce80ab09774505773c926afa2a
-cp %{_builddir}/libkdepim-21.12.3/metainfo.yaml.license %{buildroot}/usr/share/package-licenses/libkdepim/7ff5a7dd2c915b2b34329c892e06917c5f82f3a4
+cp %{_builddir}/libkdepim-22.04.0/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/libkdepim/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
+cp %{_builddir}/libkdepim-22.04.0/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/libkdepim/8287b608d3fa40ef401339fd907ca1260c964123
+cp %{_builddir}/libkdepim-22.04.0/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/libkdepim/e712eadfab0d2357c0f50f599ef35ee0d87534cb
+cp %{_builddir}/libkdepim-22.04.0/LICENSES/LGPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/libkdepim/20079e8f79713dce80ab09774505773c926afa2a
+cp %{_builddir}/libkdepim-22.04.0/metainfo.yaml.license %{buildroot}/usr/share/package-licenses/libkdepim/7ff5a7dd2c915b2b34329c892e06917c5f82f3a4
 pushd clr-build
 %make_install
 popd
@@ -138,28 +137,28 @@ popd
 
 %files dev
 %defattr(-,root,root,-)
-/usr/include/KF5/Libkdepim/KCheckComboBox
-/usr/include/KF5/Libkdepim/KWidgetLister
-/usr/include/KF5/Libkdepim/LineEditCatchReturnKey
-/usr/include/KF5/Libkdepim/MultiplyingLine
-/usr/include/KF5/Libkdepim/MultiplyingLineEditor
-/usr/include/KF5/Libkdepim/ProgressDialog
-/usr/include/KF5/Libkdepim/ProgressIndicatorLabel
-/usr/include/KF5/Libkdepim/ProgressManager
-/usr/include/KF5/Libkdepim/ProgressStatusBarWidget
-/usr/include/KF5/Libkdepim/StatusbarProgressWidget
-/usr/include/KF5/libkdepim/kcheckcombobox.h
-/usr/include/KF5/libkdepim/kdepim_export.h
-/usr/include/KF5/libkdepim/kwidgetlister.h
-/usr/include/KF5/libkdepim/lineeditcatchreturnkey.h
-/usr/include/KF5/libkdepim/multiplyingline.h
-/usr/include/KF5/libkdepim/multiplyinglineeditor.h
-/usr/include/KF5/libkdepim/progressdialog.h
-/usr/include/KF5/libkdepim/progressindicatorlabel.h
-/usr/include/KF5/libkdepim/progressmanager.h
-/usr/include/KF5/libkdepim/progressstatusbarwidget.h
-/usr/include/KF5/libkdepim/statusbarprogresswidget.h
-/usr/include/KF5/libkdepim_version.h
+/usr/include/KF5/Libkdepim/Libkdepim/KCheckComboBox
+/usr/include/KF5/Libkdepim/Libkdepim/KWidgetLister
+/usr/include/KF5/Libkdepim/Libkdepim/LineEditCatchReturnKey
+/usr/include/KF5/Libkdepim/Libkdepim/MultiplyingLine
+/usr/include/KF5/Libkdepim/Libkdepim/MultiplyingLineEditor
+/usr/include/KF5/Libkdepim/Libkdepim/ProgressDialog
+/usr/include/KF5/Libkdepim/Libkdepim/ProgressIndicatorLabel
+/usr/include/KF5/Libkdepim/Libkdepim/ProgressManager
+/usr/include/KF5/Libkdepim/Libkdepim/ProgressStatusBarWidget
+/usr/include/KF5/Libkdepim/Libkdepim/StatusbarProgressWidget
+/usr/include/KF5/Libkdepim/libkdepim/kcheckcombobox.h
+/usr/include/KF5/Libkdepim/libkdepim/kdepim_export.h
+/usr/include/KF5/Libkdepim/libkdepim/kwidgetlister.h
+/usr/include/KF5/Libkdepim/libkdepim/lineeditcatchreturnkey.h
+/usr/include/KF5/Libkdepim/libkdepim/multiplyingline.h
+/usr/include/KF5/Libkdepim/libkdepim/multiplyinglineeditor.h
+/usr/include/KF5/Libkdepim/libkdepim/progressdialog.h
+/usr/include/KF5/Libkdepim/libkdepim/progressindicatorlabel.h
+/usr/include/KF5/Libkdepim/libkdepim/progressmanager.h
+/usr/include/KF5/Libkdepim/libkdepim/progressstatusbarwidget.h
+/usr/include/KF5/Libkdepim/libkdepim/statusbarprogresswidget.h
+/usr/include/KF5/Libkdepim/libkdepim_version.h
 /usr/lib64/cmake/KF5Libkdepim/KF5LibkdepimConfig.cmake
 /usr/lib64/cmake/KF5Libkdepim/KF5LibkdepimConfigVersion.cmake
 /usr/lib64/cmake/KF5Libkdepim/KF5LibkdepimTargets-relwithdebinfo.cmake
@@ -171,15 +170,15 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5Libkdepim.so.5
-/usr/lib64/libKF5Libkdepim.so.5.19.3
+/usr/lib64/libKF5Libkdepim.so.5.20.0
 /usr/lib64/qt5/plugins/designer/kdepimwidgets.so
 
 %files license
 %defattr(0644,root,root,0755)
 /usr/share/package-licenses/libkdepim/20079e8f79713dce80ab09774505773c926afa2a
-/usr/share/package-licenses/libkdepim/29fb05b49e12a380545499938c4879440bd8851e
 /usr/share/package-licenses/libkdepim/7ff5a7dd2c915b2b34329c892e06917c5f82f3a4
 /usr/share/package-licenses/libkdepim/8287b608d3fa40ef401339fd907ca1260c964123
+/usr/share/package-licenses/libkdepim/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c
 /usr/share/package-licenses/libkdepim/e712eadfab0d2357c0f50f599ef35ee0d87534cb
 
 %files locales -f libkdepim.lang
