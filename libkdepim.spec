@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : libkdepim
-Version  : 22.08.1
-Release  : 47
-URL      : https://download.kde.org/stable/release-service/22.08.1/src/libkdepim-22.08.1.tar.xz
-Source0  : https://download.kde.org/stable/release-service/22.08.1/src/libkdepim-22.08.1.tar.xz
-Source1  : https://download.kde.org/stable/release-service/22.08.1/src/libkdepim-22.08.1.tar.xz.sig
+Version  : 22.08.2
+Release  : 48
+URL      : https://download.kde.org/stable/release-service/22.08.2/src/libkdepim-22.08.2.tar.xz
+Source0  : https://download.kde.org/stable/release-service/22.08.2/src/libkdepim-22.08.2.tar.xz
+Source1  : https://download.kde.org/stable/release-service/22.08.2/src/libkdepim-22.08.2.tar.xz.sig
 Summary  : Libraries for KDE PIM applications
 Group    : Development/Tools
 License  : BSD-3-Clause CC0-1.0 GPL-2.0 LGPL-2.0
@@ -88,15 +88,15 @@ locales components for the libkdepim package.
 
 
 %prep
-%setup -q -n libkdepim-22.08.1
-cd %{_builddir}/libkdepim-22.08.1
+%setup -q -n libkdepim-22.08.2
+cd %{_builddir}/libkdepim-22.08.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1662758530
+export SOURCE_DATE_EPOCH=1665705651
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -112,7 +112,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1662758530
+export SOURCE_DATE_EPOCH=1665705651
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libkdepim
 cp %{_builddir}/libkdepim-%{version}/CMakePresets.json.license %{buildroot}/usr/share/package-licenses/libkdepim/c085897bc39e05746ffd2d889a6e84ff1b7ae2d9 || :
@@ -171,7 +171,7 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libKF5Libkdepim.so.5
-/usr/lib64/libKF5Libkdepim.so.5.21.1
+/usr/lib64/libKF5Libkdepim.so.5.21.2
 /usr/lib64/qt5/plugins/designer/kdepimwidgets.so
 
 %files license
