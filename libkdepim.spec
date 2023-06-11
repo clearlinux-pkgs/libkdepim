@@ -6,11 +6,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : libkdepim
-Version  : 23.04.1
-Release  : 60
-URL      : https://download.kde.org/stable/release-service/23.04.1/src/libkdepim-23.04.1.tar.xz
-Source0  : https://download.kde.org/stable/release-service/23.04.1/src/libkdepim-23.04.1.tar.xz
-Source1  : https://download.kde.org/stable/release-service/23.04.1/src/libkdepim-23.04.1.tar.xz.sig
+Version  : 23.04.2
+Release  : 61
+URL      : https://download.kde.org/stable/release-service/23.04.2/src/libkdepim-23.04.2.tar.xz
+Source0  : https://download.kde.org/stable/release-service/23.04.2/src/libkdepim-23.04.2.tar.xz
+Source1  : https://download.kde.org/stable/release-service/23.04.2/src/libkdepim-23.04.2.tar.xz.sig
 Summary  : Libraries for KDE PIM applications
 Group    : Development/Tools
 License  : BSD-3-Clause CC0-1.0 GPL-2.0 LGPL-2.0
@@ -84,15 +84,15 @@ locales components for the libkdepim package.
 
 
 %prep
-%setup -q -n libkdepim-23.04.1
-cd %{_builddir}/libkdepim-23.04.1
+%setup -q -n libkdepim-23.04.2
+cd %{_builddir}/libkdepim-23.04.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1685640657
+export SOURCE_DATE_EPOCH=1686504394
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -125,7 +125,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1685640657
+export SOURCE_DATE_EPOCH=1686504394
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libkdepim
 cp %{_builddir}/libkdepim-%{version}/LICENSES/BSD-3-Clause.txt %{buildroot}/usr/share/package-licenses/libkdepim/9950d3fdce1cff1f71212fb5abd31453c6ee2f8c || :
@@ -191,10 +191,10 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libKPim5Libkdepim.so.5.23.1
+/V3/usr/lib64/libKPim5Libkdepim.so.5.23.2
 /V3/usr/lib64/qt5/plugins/designer/kdepim5widgets.so
 /usr/lib64/libKPim5Libkdepim.so.5
-/usr/lib64/libKPim5Libkdepim.so.5.23.1
+/usr/lib64/libKPim5Libkdepim.so.5.23.2
 /usr/lib64/qt5/plugins/designer/kdepim5widgets.so
 
 %files license
