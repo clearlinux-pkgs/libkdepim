@@ -9,7 +9,7 @@
 #
 Name     : libkdepim
 Version  : 24.08.0
-Release  : 77
+Release  : 78
 URL      : https://download.kde.org/stable/release-service/24.08.0/src/libkdepim-24.08.0.tar.xz
 Source0  : https://download.kde.org/stable/release-service/24.08.0/src/libkdepim-24.08.0.tar.xz
 Source1  : https://download.kde.org/stable/release-service/24.08.0/src/libkdepim-24.08.0.tar.xz.sig
